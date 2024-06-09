@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { AppBar, Toolbar, Typography, Button, Avatar } from '@mui/material';
-import { redirect, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import { logout } from '../../sotre/authSlice';
 
 const Navbar = () => {

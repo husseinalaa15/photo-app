@@ -1,7 +1,5 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import { Field, Form, Formik } from "formik";
-import { firebaseAuth } from "../../config/Firebase";
 import { useTheme } from '@mui/material/styles';
 import TitleForm from "./titleForm";
 import { Link } from "react-router-dom";
@@ -49,7 +47,7 @@ const ReusableForm: React.FC<IProps> = ({ initialValues, fields,submitBtn ,title
           handleSubmit(values);
         }}
       >
-        {({ isSubmitting, values, handleChange }) => (
+        {({  values, handleChange }) => (
           <Form>
             <Box
               sx={{

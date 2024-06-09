@@ -1,5 +1,5 @@
 import ReusableForm from '../../components/form'
-import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { firebaseAuth } from '../../config/Firebase'
 
 const SignUp = () => {

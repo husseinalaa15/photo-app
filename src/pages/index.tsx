@@ -14,7 +14,7 @@ import ActionBtns from "../components/actionbtns";
 import { useDispatch, useSelector } from "react-redux";
 import { addToFavorites, setImagesForPage } from "../sotre/imageSlice";
 import { Link } from "react-router-dom";
-import { app, db } from "../config/Firebase";
+import {  db } from "../config/Firebase";
 import { addDoc, collection } from "firebase/firestore";
 
 const HomePage = () => {
@@ -24,9 +24,9 @@ const HomePage = () => {
 
   const user = useSelector((state: any) => state.auth);
   const imagesByPage = useSelector((state: any) => state.images.imagesByPage);
-  const favoriteImages = useSelector(
-    (state: any) => state.images.favoriteImages
-  );
+//   const favoriteImages = useSelector(
+//     (state: any) => state.images.favoriteImages
+//   );
 
   const dispatch = useDispatch();
 
@@ -56,7 +56,7 @@ const HomePage = () => {
   const addToFavoritesHandler = async (image: any) => {
     if (user.id) {
       dispatch(addToFavorites(image));
-      const docRef = await addDoc(collection(db, "favorites"), {
+      await addDoc(collection(db, "favorites"), {
         userid:user.id,
         item:image.src.original
       }).then((response)=>console.log(response))

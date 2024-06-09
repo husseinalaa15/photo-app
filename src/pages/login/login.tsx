@@ -1,11 +1,9 @@
-import React from 'react'
 import ReusableForm from '../../components/form'
-import { Button, Typography } from '@mui/material'
 import { firebaseAuth } from '../../config/Firebase'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { useDispatch } from 'react-redux'
 import { login } from '../../sotre/authSlice'
-import { redirect, useNavigate } from 'react-router-dom'
+import {  useNavigate } from 'react-router-dom'
 
 const Login = () => {
     const initialValues = {
@@ -37,8 +35,8 @@ const Login = () => {
             values.email,
             values.password
           );
-          const user = handleSignin.user;
-          const accessToken = user?.stsTokenManager?.accessToken;
+          const user:any = handleSignin.user;
+          const accessToken:any = user?.stsTokenManager?.accessToken ;
 
           dispatch(login({
             id:user.uid,

@@ -1,13 +1,12 @@
-import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore"; 
+import { collection,  getDocs, query, where } from "firebase/firestore"; 
 import { useEffect, useState } from "react";
 import { db } from "../../config/Firebase";
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { Box, Button, ImageList, ImageListItem } from "@mui/material";
 
 
 const FavoritesLanding = () => {
     const user = useSelector((state: any) => state.auth);
-    const dispatch = useDispatch()
     const [favs,setFavs] = useState<any>()
 
     useEffect(() => {
