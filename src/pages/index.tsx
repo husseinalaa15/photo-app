@@ -21,6 +21,7 @@ import { addToFavorites, setImagesForPage } from "../sotre/imageSlice";
 import { Link } from "react-router-dom";
 import {  db } from "../config/Firebase";
 import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import ImageWithPlaceholder from "../components/imagePlaceHolder";
 
 const HomePage = () => {
   const [loading, setLoading] = useState(true);
@@ -95,14 +96,8 @@ const getColumns = () => {
         <ImageList sx={{ width: "100%" }} variant="masonry" cols={getColumns()} gap={8}>
           {imagesByPage[page].map((image: any) => (
             <ImageListItem key={image.id} sx={{ position: "relative" }}>
-              <Box
-                component="img"
-                srcSet={`${image.src.tiny}?w=161&fit=crop&auto=format&dpr=2 2x`}
-                src={`${image.src.original}`}
-                alt={image.title}
-                loading="lazy"
-                sx={{ width: "100%", height: "auto" }}
-              />
+                          <ImageWithPlaceholder src={image.src.original} alt={image.title} />
+
               <Box
                 sx={{
                   position: "absolute",
