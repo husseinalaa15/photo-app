@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { AppBar, Toolbar, Typography, Button, Avatar } from '@mui/material';
-import {  useNavigate } from 'react-router-dom';
+import {  Link, useNavigate } from 'react-router-dom';
 import { logout } from '../../sotre/authSlice';
 
 const Navbar = () => {
@@ -14,10 +14,12 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static">
-      <Toolbar>
+    <AppBar position="fixed">
+      <Toolbar sx={{display:"flex",alignItems:"center",padding:"10px"}}>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Your App
+          <Link to='/'>
+            <img src="/logo.png" width={"30px"} alt="photoapp" />
+          </Link>
         </Typography>
         {user.id && (
           <Button color="inherit" onClick={() =>  navigate('/favorites')}>

@@ -9,7 +9,6 @@ type IProps = {
 }
 const ActionBtns:React.FC<IProps> = ({setPage,loading,error,page}) =>{
     const nextHandle=()=>{
-        console.log(page,"setpage")
             setPage(page+1)
         
       }
@@ -23,6 +22,7 @@ const ActionBtns:React.FC<IProps> = ({setPage,loading,error,page}) =>{
         <Box sx={{
             display:'flex'
             ,
+            width:"100%",
             justifyContent: 'space-between',
         }}>
         <Button variant={"contained"} onClick={()=>prevHandle()} color="secondary" disabled={page === 1 || loading ||error} >Previous</Button>
