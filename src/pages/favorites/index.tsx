@@ -18,10 +18,11 @@ import {
   DialogContent,
   ImageList,
   ImageListItem,
+  Typography,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const FavoritesLanding = () => {
   const user = useSelector((state: any) => state.auth);
@@ -97,6 +98,7 @@ const getColumns = () => {
 };
 
   const renderFavs = () => {
+   
     if (favs?.length > 0 && user.id) {
       return (
         <ImageList sx={{ width: "100%" }} variant="masonry" cols={getColumns()} gap={8}>
@@ -141,8 +143,12 @@ const getColumns = () => {
           ))}
         </ImageList>
       );
-    } else {
-      return "No Favs ";
+    } else{
+      return (
+        <Typography variant="h5" color={"secondary"} >
+        You dont have any favorite photos yet , <Link to="/"  style={{ color: "#a26248" }}>Pick yours</Link>
+      </Typography>
+      )
     }
   };
   return (
@@ -182,7 +188,7 @@ const getColumns = () => {
       )}
       {loading && <CircularProgress size={50} color="secondary" />}
 
-      {renderFavs()}
+      {!loading && renderFavs()}
     </Box>
   );
 };
