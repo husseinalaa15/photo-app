@@ -5,12 +5,12 @@ import { getFirestore } from "firebase/firestore";
 
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDsOqwu1cyyipvFZWwaTX9tb675wXwqpv8",
-  authDomain: "photo-app-e1dde.firebaseapp.com",
-  projectId: "photo-app-e1dde",
-  storageBucket: "photo-app-e1dde.appspot.com",
-  messagingSenderId: "285011965082",
-  appId: "1:285011965082:web:28b5d604d89a6c3a0b1b23"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId:import.meta.env.VITE_FIREBASE_APP_ID
   
 };
 
