@@ -4,6 +4,7 @@ import { firebaseAuth } from "../../config/Firebase";
 import { useState } from "react";
 import { Box } from "@mui/material";
 import * as Yup from 'yup';
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const initialValues = {
@@ -31,7 +32,7 @@ const SignUp = () => {
   const [err,setError] = useState<boolean>(false)
   const [errMsg,setErrorMessage] = useState<string>()
   const [loading,setLoading] = useState<boolean>(false)
-
+  const navigate = useNavigate()
   const handleSubmit = async (values: any) => {
     const auth = firebaseAuth;
     setLoading(true)
@@ -42,6 +43,7 @@ const SignUp = () => {
         values.password
       );
       setLoading(false)
+      navigate('/login')
     } catch (err:any) {
       const errorMessage = err.message;
       const errorCode = err.code;
