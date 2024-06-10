@@ -41,7 +41,6 @@ const SignUp = () => {
         values.email,
         values.password
       );
-      const user = handleSignup.user;
       setLoading(false)
     } catch (err:any) {
       const errorMessage = err.message;
@@ -57,6 +56,7 @@ const SignUp = () => {
           setErrorMessage(
             "This email address is already in use by another account."
           );
+          break;
         case "auth/invalid-email":
           setErrorMessage("This email address is invalid.");
           break;

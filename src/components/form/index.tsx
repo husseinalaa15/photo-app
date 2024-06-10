@@ -33,7 +33,6 @@ const ReusableForm: React.FC<IProps> = ({
   title,
   caption,
   loading,
-  error,
   handleSubmit,
   validationSchema
 }) => {

@@ -18,7 +18,6 @@ import {
   DialogContent,
   ImageList,
   ImageListItem,
-  Typography,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
@@ -30,7 +29,6 @@ const FavoritesLanding = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [deletedSuccessfully, setDeletedSuccessfully] =
     useState<boolean>(false);
-  const [error, setError] = useState<boolean>(false);
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -102,7 +100,7 @@ const getColumns = () => {
     if (favs?.length > 0 && user.id) {
       return (
         <ImageList sx={{ width: "100%" }} variant="masonry" cols={getColumns()} gap={8}>
-          {favs.map((image: any, i: number) => (
+          {favs.map((image: any) => (
             <ImageListItem key={image.docId} sx={{ position: "relative" }}>
               <Box
                 component="img"
