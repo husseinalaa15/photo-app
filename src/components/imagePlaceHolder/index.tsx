@@ -16,6 +16,10 @@ const ImageWithPlaceholder = ({ src, alt }: { src: string, alt: string }) => {
     img.onerror = () => {
       setLoaded(true); 
     };
+    return () => {
+        img.onload = null;
+        img.onerror = null;
+      };
   }, [src]);
 
   return (
