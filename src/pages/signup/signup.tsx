@@ -36,7 +36,7 @@ const SignUp = () => {
     const auth = firebaseAuth;
     setLoading(true)
     try {
-      const handleSignup = await createUserWithEmailAndPassword(
+      await createUserWithEmailAndPassword(
         auth,
         values.email,
         values.password
